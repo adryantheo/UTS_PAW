@@ -13,19 +13,18 @@ if(isset($_POST['login'])){
 
 
 	//jika tombol tambah benar di klik maka lanjut prosesnya
-	$username		= $_POST['username'];
-	$password		= $_POST['password'];
-	$md5password = $password;
+	$username		= mysqli_real_escape_string($conn, $_POST["username"]);
+	$password		= mysqli_real_escape_string($conn, $_POST["password"]);
+	$passwordHash = md5($password);
 
 
 
-	$mysqli= "SELECT * FROM user WHERE username='$username' AND password='$password';";
-        $show= mysqli_query($conn,$mysqli) or die(mysqli_error($conn));
+	$mysqli= "SELECT * FROM user WHERE username='$username' AND password='$passwordHash';";
+        $show= mysqli_query($conn,$mysqli);
         $data= mysqli_fetch_array($show);
 				$_SESSION['id']=$data['id'];
 				$_SESSION['role']=$data['role'];
 				$count=mysqli_num_rows($show);
-
 
 
         if(mysqli_num_rows($show)==1){

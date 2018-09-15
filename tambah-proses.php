@@ -10,6 +10,7 @@ if(isset($_POST['register'])){
 
 	$username		= mysqli_real_escape_string($conn, $_POST["username"]);
 	$password		= mysqli_real_escape_string($conn, $_POST["password"]);
+	$passwordHash = md5($password);
 	//$password = password_hash($password, PASSWORD_DEFAULT);
 	$email		= mysqli_real_escape_string($conn, $_POST["email"]);
 	$hash = md5( rand(0,1000) );
@@ -18,7 +19,7 @@ if(isset($_POST['register'])){
 
 
 	//melakukan query dengan perintah INSERT INTO untuk memasukkan data ke database
-	$input = mysqli_query($conn,"INSERT INTO user VALUES(NULL, '$username', '$password', '$email','', '$hash', '')") or die(mysqli_error($conn));
+	$input = mysqli_query($conn,"INSERT INTO user VALUES(NULL, '$username', '$passwordHash', '$email','', '$hash', '')") or die(mysqli_error($conn));
 
 	//jika query input sukses
 	if($input){

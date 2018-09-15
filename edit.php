@@ -44,7 +44,7 @@
       <tr>
         <td>Password</td>
         <td>:</td>
-        <td><input type="text" name="password" size="30" value="<?php echo $data['password']; ?>" required></td> <!-- value diambil dari hasil query -->
+        <td><input type="password" name="password" size="30" value="<?php echo $data['password']; ?>" required></td> <!-- value diambil dari hasil query -->
       </tr>
 
 

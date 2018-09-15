@@ -11,12 +11,13 @@ if(isset($_POST['simpan'])){
 	$id			= $_POST['id'];	//membuat variabel $id dan datanya dari inputan hidden id
   $username		= $_POST['username'];
 	$password		= $_POST['password'];
+	$passwordHash = md5($password);
 	$email		= $_POST['email'];
 
 
 
 	//melakukan query dengan perintah UPDATE untuk update data ke database dengan kondisi WHERE siswa_id='$id' <- diambil dari inputan hidden id
-	$update = mysqli_query($conn,"UPDATE user SET username='$username', password='$password', email='$email' WHERE id='$id'") or die(mysqli_error($conn));
+	$update = mysqli_query($conn,"UPDATE user SET username='$username', password='$passwordHash', email='$email' WHERE id='$id'") or die(mysqli_error($conn));
 
 	//jika query update sukses
 	if($update){
