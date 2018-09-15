@@ -15,7 +15,7 @@
     <!-- start wrap div -->
     <div id="wrap">
 
-      
+
         <?php
 
         include('koneksi.php');
@@ -33,7 +33,7 @@
         mysqli_query($conn,"UPDATE user SET active='1' WHERE email='".$email."' AND hash='".$hash."' AND active='0'") or die(mysqli_error($conn));
         echo '<div class="statusmsg">Your account has been activated, you can now login</div>';
         }else{
-        // No match -> invalid url or account has already been activated.
+      
           echo '<div class="statusmsg">The url is either invalid or you already have activated your account.</div>';
         }
 
