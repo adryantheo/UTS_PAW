@@ -15,11 +15,7 @@
     <!-- start wrap div -->
     <div id="wrap">
 
-        <!-- start php code -->
-
-        <!-- stop php code -->
-
-        <!-- title and description -->
+      
         <?php
 
         include('koneksi.php');
