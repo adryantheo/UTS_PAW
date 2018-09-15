@@ -12,27 +12,23 @@
 	<link rel="stylesheet" type="text/css" href="contactus.css">
 </head>
 <body>
-	
+
+	<div class="topnavigation">
+		<img style="float: left;" width="180px" src="logo.jpg">
 	<?php
 	session_start();
 	include('koneksi.php');
 	if($_SESSION['status']!="login"){
+	echo '	<a href="login.php">LOGIN</a>';
 	header("location:login.php?pesan=belum_login");
 }else{
-	echo '<script language="javascript">';
-	echo 'alert("Selamat Datang")';
-	echo '</script>';
+	echo '<a href="logout.php">LOGOUT</a>';
 }
 	 ?>
-
-	<div class="topnavigation">
-		<img style="float: left;" width="180px" src="logo.jpg">
-		<a href="login.php">LOGIN</a>
 		<a href="contactus.php">CONTACT US</a>
 		<a href="about.php">ABOUT</a>
 		<a class="active" href="jobs1.php">JOBS</a>
 		<a href="home.php">HOME</a>
-		<a href="home.php">Logout</a>
 	</div>
 
 	<br><br><br><br><br>

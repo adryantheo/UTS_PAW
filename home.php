@@ -19,7 +19,18 @@
 
 	<div class="topnavigation">
 		<img style="float: left;" width="180px" src="logo.jpg">
-		<a href="login.php">LOGIN</a>
+		<?php
+		error_reporting(0);
+		session_start();
+		include('koneksi.php');
+		if($_SESSION['status']!="login"){
+		echo '<a href="login.php">LOGIN</a>';
+		//header("location:login.php?pesan=belum_login");
+	}else{
+		echo '<a href="logout.php">LOGOUT</a>';
+	}
+		 ?>
+		
 		<a href="contactus.php">CONTACT US</a>
 		<a href="about.php">ABOUT</a>
 		<a href="jobs1.php">JOBS</a>

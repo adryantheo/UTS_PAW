@@ -22,6 +22,7 @@ if(isset($_POST['login'])){
 	$mysqli= "SELECT * FROM user WHERE username='$username' AND password='$passwordHash';";
         $show= mysqli_query($conn,$mysqli);
         $data= mysqli_fetch_array($show);
+				
 				$_SESSION['id']=$data['id'];
 				$_SESSION['role']=$data['role'];
 				$count=mysqli_num_rows($show);
